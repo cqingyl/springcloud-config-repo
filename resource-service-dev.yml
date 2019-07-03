@@ -18,7 +18,7 @@ logging:
     org.springframework: DEBUG
     
 auth:
-  link: http://localhost:9012
+  link: http://localhost:19012
 
 eureka:
   instance:
