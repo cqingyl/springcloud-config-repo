@@ -30,9 +30,6 @@ eureka:
     service-url:
       defaultZone: ${EUREKA_SERVICE_URL:http://localhost:9001}/eureka/
 management:
-  endpoint:
-    bus-refresh:
-      enabled: true
   endpoints:
     web:
       exposure:
@@ -40,4 +37,6 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+    bus-refresh:
+      enabled: true
 
