@@ -1,0 +1,40 @@
+server:
+  port: 9022
+spring:
+  application:
+    name: resource-service
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@//125.64.9.98:1521/CDXTDB
+    username: rmc_test
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 50
+
+logging:
+  config: classpath:log4j2.properties
+  level:
+    org.springframework: DEBUG
+    
+auth:
+  link: http://localhost:9012
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+    status-page-url: http://localhost:${server.port}/swagger-ui.html
+  client:
+    registryFetchIntervalSeconds: 5
+    service-url:
+      defaultZone: ${EUREKA_SERVICE_URL:http://localhost:9001}/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
