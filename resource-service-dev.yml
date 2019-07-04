@@ -1,5 +1,5 @@
 server:
-  port: 9022
+  port: 9052
 
 spring:
   application:
