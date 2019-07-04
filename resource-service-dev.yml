@@ -18,7 +18,7 @@ logging:
     org.springframework: DEBUG
     
 auth:
-  link: http://localhost:59012
+  link: http://localhost:69012
 
 eureka:
   instance:
@@ -29,14 +29,5 @@ eureka:
     registryFetchIntervalSeconds: 5
     service-url:
       defaultZone: ${EUREKA_SERVICE_URL:http://localhost:9001}/eureka/
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    health:
-      show-details: ALWAYS
-    bus-refresh:
-      enabled: true
+
 
