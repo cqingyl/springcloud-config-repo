@@ -1,8 +1,13 @@
 server:
   port: 9022
+
 spring:
   application:
     name: resource-service
+  cloud:
+    bus:
+      trace:
+        enabled: true
   datasource:
     driver-class-name: oracle.jdbc.OracleDriver
     url: jdbc:oracle:thin:@//125.64.9.98:1521/CDXTDB
@@ -11,14 +16,20 @@ spring:
     hikari:
       minimum-idle: 5
       maximum-pool-size: 50
+  rabbitmq:
+    host: 172.16.204.100
+    port: 5672
+    username: admin
+    password: admin
 
 logging:
   config: classpath:log4j2.properties
   level:
     org.springframework: DEBUG
-    
+
 auth:
-  link: http://localhost:69012
+  link: http://localhost:9012
+
 
 eureka:
   instance:
@@ -30,4 +41,16 @@ eureka:
     service-url:
       defaultZone: ${EUREKA_SERVICE_URL:http://localhost:9001}/eureka/
 
-
+management:
+  health:
+    db:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    refresh:
+      enabled: true
+    health:
+      show-details: ALWAYS
